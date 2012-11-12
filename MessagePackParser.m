@@ -48,6 +48,9 @@
             for(msgpack_object_kv* p = obj.via.map.ptr; p < pend; p++){
                 id key = [self createUnpackedObject:p->key];
                 id val = [self createUnpackedObject:p->val];
+                if ([key isKindOfClass:[NSData class]]) {
+                    key = [[NSString alloc] initWithData:key encoding:NSUTF8StringEncoding];
+                }
                 [dict setValue:val forKey:key];
 				[key release];
 				[val release];
