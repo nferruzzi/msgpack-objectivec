@@ -51,7 +51,7 @@
                 if ([key isKindOfClass:[NSData class]]) {
                     key = [[NSString alloc] initWithData:key encoding:NSUTF8StringEncoding];
                 }
-                if (![key isKindOfClass:[NSNull class]]) {
+                if (![val isKindOfClass:[NSNull class]]) {
                     // Do not set keys for null values
                     [dict setValue:val forKey:key];
                 }
